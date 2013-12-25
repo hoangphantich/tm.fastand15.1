@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btnred"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/r_d" />
+
+    <Button
+        android:id="@+id/btngreen"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/g_n" />
+
+    <Button
+        android:id="@+id/btnyellow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/y_w" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Red    " />
+
+        <RadioButton
+            android:id="@+id/radio01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+            android:text="Green  " />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Yellow " />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>
