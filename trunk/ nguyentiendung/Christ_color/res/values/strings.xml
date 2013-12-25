@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Christ_color</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="r_d">Red</string>
+    <string name="g_n">Green</string>
+    <string name="y_w">Yellow</string>
+</resources>
