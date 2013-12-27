@@ -9,6 +9,9 @@ public class MainActivity extends Activity {
 		TextView helloLbl;
 		EditText nameTxt;
 		
+		/**
+		* inner class
+		*/
 		class NameListener implements View.OnKeyListener {
         	public boolean onKey(View view, int keyCode, KeyEvent event){
         		//if enterkey, display text on say hello
