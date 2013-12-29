@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">stmcolor</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="Red_label">Red</string>
+    <string name="Blue_label">Blue</string>
+    <string name="Yellow_lable">Yellow</string>
+
+</resources>
