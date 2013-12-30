@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="companies">
+        <item >IBM Company</item>
+        <item >Google Company</item>
+        <item >Techmaster</item>
+        <item >TNHH Việt Nhật</item>
+        <item >Xi măng Sông Đà</item>
+        
+    </string-array>
+    
+</resources>
