@@ -7,4 +7,18 @@
     <string name="title_activity_second">Account Infor</string>
     <string name="title_activity_third">PLace Infor</string>
 
+    <string-array name="workfor">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+        <item>Game</item>
+    </string-array>
+
+    <string name="title_activity_four">Mobile</string>
+
 </resources>
