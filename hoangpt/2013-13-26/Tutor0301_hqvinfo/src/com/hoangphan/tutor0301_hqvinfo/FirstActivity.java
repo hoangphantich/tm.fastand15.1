@@ -50,6 +50,18 @@ public class FirstActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		Log.d("Life", "OnResume");
+		
+		Bundle b = getIntent().getExtras();
+		TextView infos = (TextView) findViewById(R.id.txtInfo);
+		
+		//key-value
+		if (b != null) {
+			Set<String> k = b.keySet();
+			for (String str : k) {
+				String v = b.getString(str);
+				infos.append("\n"+str+" is "+v+".");
+			}
+		}				
 	}
 
 	@Override
@@ -85,22 +97,16 @@ public class FirstActivity extends Activity {
 
 	//callback
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	protected void onActivityResult(int requestCode, int resultCode, Intent i1) {
 		//if ok
 		//if (RESULT_OK == resultCode) {
 			//if (FROMI1TOI2 == requestCode) {
 				Log.d("Acti", "Vao day chua");
-				Bundle b = getIntent().getExtras();
-				TextView infos = (TextView) findViewById(R.id.txtInfo);
+				String name = i1.getData().toString();
+				String age = i1.getStringExtra("age");
 				
-				//key-value
-				if (b != null) {
-					Set<String> k = b.keySet();
-					for (String str : k) {
-						String v = b.getString(str);
-						infos.append("\n"+str+" is "+v+".");
-					}
-				}				
+				TextView txtInfos = (TextView) findViewById(R.id.txtInfo);
+				txtInfos.append(name+"  "+age+" years old");
 			//}
 		//}
 	}
