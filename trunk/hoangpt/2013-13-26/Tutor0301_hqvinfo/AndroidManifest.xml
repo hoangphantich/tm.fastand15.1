@@ -39,7 +39,10 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            
+        </activity>
+        <activity
+            android:name="com.hoangphan.tutor0301_hqvinfo.FourActivity"
+            android:label="@string/title_activity_four" >
         </activity>
     </application>
 
