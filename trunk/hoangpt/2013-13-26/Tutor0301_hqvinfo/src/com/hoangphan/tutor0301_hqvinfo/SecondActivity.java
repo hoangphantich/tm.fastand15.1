@@ -1,5 +1,6 @@
 package com.hoangphan.tutor0301_hqvinfo;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 public class SecondActivity extends Activity {
 
 	private static final int GOTOPLACE = 300;
+	private Intent i3;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +67,7 @@ public class SecondActivity extends Activity {
 		EditText ageTxt = (EditText) findViewById(R.id.txtAge);
 		
 		Intent i1 = new Intent();
-		i1.putExtra("name", nameTxt.getText().toString());
+		i1.setData(Uri.parse(nameTxt.getText().toString()));
 		i1.putExtra("age", ageTxt.getText().toString());
 		
 		//finish
@@ -74,7 +76,14 @@ public class SecondActivity extends Activity {
 	}
 	
 	public void goPlace(View v){
-		startActivityForResult(new Intent(this, ThirdActivity.class), GOTOPLACE);
+		i3 = new Intent(this, ThirdActivity.class);
 		
+		EditText nameTxt = (EditText) findViewById(R.id.txtName);
+		EditText ageTxt = (EditText) findViewById(R.id.txtAge);
+		i3.putExtra("name", nameTxt.getText().toString());
+		i3.putExtra("age", ageTxt.getText().toString());
+		
+		startActivityForResult(i3, GOTOPLACE);
+	
 	}
 }
