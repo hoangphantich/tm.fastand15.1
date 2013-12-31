@@ -3,8 +3,6 @@ package com.hoangphan.tutor0303_dog;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -12,9 +10,14 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class DogActivity extends Activity {
@@ -24,12 +27,19 @@ public class DogActivity extends Activity {
   private static final int DLG_DOWNLOAD = 2;
   
   private ImageView dog;
-private ProgressDialog pgr2;
+  private ProgressDialog pgr2;
+  private SeekBar seekBar1;
+ Button  btnDog; 
+boolean advancing = true;
+
   
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_dog);
+    seekBar1 = (SeekBar) findViewById(R.id.seekBar1);
+    btnDog = (Button)findViewById(R.id.btnDog);
+    
   }
 
   @Override
@@ -57,6 +67,7 @@ private ProgressDialog pgr2;
       return _createWaiting();
     case DLG_DOWNLOAD:
     	return _createDownload();
+    	//displayProgressBar();
     default:
       break;
     }
@@ -64,12 +75,24 @@ private ProgressDialog pgr2;
     return null;
   }
 
-  int initial = 20;
+  int initial1 = 0;
   private Dialog _createDownload() {
-	pgr2 = new ProgressDialog(this);  
+	pgr2 = new ProgressDialog(this);  	
 	pgr2.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-	pgr2.setProgress(initial);
-	  
+	pgr2.setMessage(getString(R.string.msg));
+	pgr2.setTitle("Processing...");
+	pgr2.setCancelable(false);
+	pgr2.setProgress(0);	 
+	pgr2.setMax(100);
+	
+	pgr2.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
+	    @Override
+	    public void onClick(DialogInterface dialog, int which) {
+	    	pgr2.setProgress(0);	
+	    	pgr2.dismiss();
+	        dialog.dismiss();
+	    }
+	});
 	return pgr2;
 }
 
@@ -121,6 +144,7 @@ private Dialog _createWaiting() {
       @Override
       public void onClick(DialogInterface dialog, int which) {
         // TODO Auto-generated method stub
+    	  
         
       }
     })
@@ -152,25 +176,54 @@ private Dialog _createWaiting() {
 		
 		@Override
 		public void run() {
-			for (int i = 0; i < 15; i++) {
+			for (int i = 0; i < pgr2.getMax(); i++) {
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				pgr2.incrementProgressBy(100/15);
+				pgr2.incrementProgressBy(pgr2.getMax()/15);
 			}
 			pgr2.dismiss();
 		}
 	}).start();
+   
   }
   
-  int i = 0;
+   int i = 0, count;
+private TextView textView;
+private Timer timer;
   public void showDog(View v){
+	 
+	  seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+		
+		@Override
+		public void onStopTrackingTouch(SeekBar seekBar) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void onStartTrackingTouch(SeekBar seekBar) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void onProgressChanged(SeekBar seekBar, int progress,
+				boolean fromUser) {
+			if(fromUser) count = progress;
+			// TODO Auto-generated method stub
+			
+		}
+	});
+	
     dog = (ImageView) findViewById(R.id.dogImg);
     dog.setImageBitmap(BitmapFactory.decodeFile("/sdcard/Download/dog/T0.gif"));
-    
-    Timer timer = new Timer();
+    if (timer ==null)
+    {
+     timer = new Timer();
+     btnDog.setText("Pause Dog");
     timer.scheduleAtFixedRate(new TimerTask() {
 
         @Override
@@ -178,18 +231,39 @@ private Dialog _createWaiting() {
             _timerMethod();
         }
     }, 0,1000);
+    }
+    else
+    {
+    	timer.cancel();
+    	timer=null;
+    	btnDog.setText("Play Dog");
+    }
   }
   
+  
   private void _timerMethod() {
-    runOnUiThread(new Runnable() {
-      @Override
+	  textView = (TextView)findViewById(R.id.textView);
+	  
+    runOnUiThread(new Runnable() {    	
+    	
+
+	@Override
       public void run() {
+	
             int j = i%14;
             String pathImg = "/sdcard/Download/dog/T"+j+".gif";
             dog.setImageBitmap(BitmapFactory.decodeFile(pathImg));
             i++;
-        }
+            //onStopTrackingTouch(i);
+            if (i>13)
+            	i=0;
+          seekBar1.setProgress(i);
+          textView.setText(i+"");      
+		
+	}
     });      
   }
+  
+ 
 
 }
