@@ -14,37 +14,55 @@
         android:id="@+id/btnNormal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Show normal dialog" 
-        android:onClick="showNormal" />
+        android:onClick="showNormal"
+        android:text="Show normal dialog" />
+
     <Button
         android:id="@+id/btnWaiting"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Show waiting dialog" 
-        android:onClick="showWaiting" />
+        android:onClick="showWaiting"
+        android:text="Show waiting dialog" />
+
     <Button
         android:id="@+id/btnDownloading"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Show downloading dialog" 
-        android:onClick="showDownloading"/>
+        android:onClick="showDownloading"
+        android:text="Show downloading dialog" />
+
     <Button
         android:id="@+id/btnDog"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Show internal imageview" 
-        android:onClick="showDog"/>
+        android:onClick="showDog"
+        android:text="Play Dog" />
+
     <Button
         android:id="@+id/btnBrowser"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Show external browser" 
-        android:onClick="showBrowser"/>
+        android:onClick="showBrowser"
+        android:text="Show external browser" />
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="13"
+        android:thumb="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0" />
 
     <ImageView
         android:id="@+id/dogImg"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.79"
         android:src="@drawable/ic_launcher" />
 
 </LinearLayout>
