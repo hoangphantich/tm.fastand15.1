@@ -1,20 +1,11 @@
-package com.hoangphan.tutor0302_exttask;
+package com.hoangphan.tutor0402_menutask;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.StreamCorruptedException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,6 +14,7 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -33,6 +25,11 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
   private static final int GO_TO_SAVE_FROM_MAIN = 0;
+  
+  private static final int MENU_INFO = 0;
+  private static final int MENU_DELETE = 1;
+
+
   private EditText txtWork;
   private EditText txtHour;
   private EditText txtMinute;
@@ -45,23 +42,13 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     
-    //read from list
-    File sdcard = Environment.getExternalStorageDirectory();
-    File file = new File(sdcard.getAbsoluteFile()+"/Music/list.txt");
-    listWorks = new ArrayList<Work>();
-    try {
-		ObjectInputStream reader = new ObjectInputStream(new FileInputStream(file));
-		listWorks = (ArrayList<Work>)  reader.readObject();
-    } catch (Exception e) {
-		e.printStackTrace();
-	}
-    
     txtWork = (EditText) findViewById(R.id.txtWork);
     txtHour = (EditText) findViewById(R.id.txtHour);
     txtMinute = (EditText) findViewById(R.id.txtMinute);
     
     //build list view
     list = (ListView) findViewById(R.id.list);
+    listWorks = new ArrayList<Work>();
     
     //need adapter for input data and layout
     adapter = new WorkAdapter(this, R.layout.work_custom, listWorks);
@@ -81,10 +68,29 @@ public class MainActivity extends Activity {
   public boolean onCreateOptionsMenu(Menu menu) {
     // Inflate the menu; this adds items to the action bar if it is present.
     getMenuInflater().inflate(R.menu.main, menu);
+    menu.add(0, MENU_INFO, 0, "Info");
+    menu.add(0, MENU_DELETE, 1, "Delete");
+    
     return true;
   }
   
-  @TargetApi(19)
+  
+  @Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	  int id = item.getItemId();
+	  switch (id) {
+	case MENU_INFO:
+		startActivity(new Intent(MainActivity.this, InfoActivity.class));
+		break;
+
+	default:
+		break;
+	}
+	  
+		return super.onOptionsItemSelected(item);
+	}
+
+@TargetApi(19)
   public void onAddWork(View v){
     //validate
     if(txtWork.getText().toString().equals("")){
@@ -121,22 +127,7 @@ public class MainActivity extends Activity {
       txtWork.setText("");
       txtHour.setText("");
       txtMinute.setText("");
-      
-      //write to file
-      File sdcard = Environment.getExternalStorageDirectory();
-      File file = new File(sdcard.getAbsoluteFile()+"/Music/list.txt");
-      ObjectOutputStream writer =  null;
-      try {
-		writer = new ObjectOutputStream(new FileOutputStream(file));
-		writer.writeObject(listWorks);
-		} catch (StreamCorruptedException e) {
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	 }
+    }
   }
 
   

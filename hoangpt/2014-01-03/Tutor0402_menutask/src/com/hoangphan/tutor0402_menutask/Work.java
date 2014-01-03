@@ -1,8 +1,6 @@
-package com.hoangphan.tutor0302_exttask;
+package com.hoangphan.tutor0402_menutask;
 
-import java.io.Serializable;
-
-public class Work implements Serializable {
+public class Work {
   private String name;
   private int hour;
   private int minute;
