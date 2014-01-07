@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/settings"
+          android:title="@string/settings_label"
+          android:alphabeticShortcut="@string/settings_shortcut" />
+</menu>
+<!-- From: file:/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/src/main/res/menu/main.xml -->
