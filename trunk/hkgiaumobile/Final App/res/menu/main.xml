@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item android:id="@+id/MENU_ITEM_OPTION" android:title="Option" android:orderInCategory="0"></item>
+    <item android:id="@+id/MENU_ITEM_CATALOG" android:title="Go to catalog" android:orderInCategory="1"></item>
+    <item android:id="@+id/MENU_ITEM_CHECKOUT" android:title="Go to checkout" android:orderInCategory="2"></item>
+    <item android:id="@+id/MENU_ITEM_LOGOUT" android:title="Logout" android:orderInCategory="3"></item>
+    <item android:id="@+id/MENU_ITEM_EXIT" android:title="Exit" android:orderInCategory="4"></item>
+    
+
+</menu>
