@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/signout"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Sign out"/>
+    <item android:id="@+id/itemGocheckout" android:title="@string/title_gotocheckout"></item>
+    <item android:id="@+id/itemGocatalog" android:title="@string/title_gotocatolog"></item>
+    <item android:id="@+id/itemExit" android:title="@string/title_exit"></item>
+    <item android:id="@+id/itemOption" android:title="@string/option"></item>
+
+</menu>
