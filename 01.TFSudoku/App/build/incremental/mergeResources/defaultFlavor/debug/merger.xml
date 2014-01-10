@@ -1817,10 +1817,6 @@ normal
                     name="TextAppearance.AppCompat.Widget.PopupMenu.Large"
                     parent="TextAppearance.AppCompat.Base.Widget.PopupMenu.Large" />
 
-                <attr
-                    name="listPreferredItemHeightSmall"
-                    format="dimension" />
-
                 <declare-styleable name="MenuItem" >
 
                     <!-- The ID of the item. -->
@@ -1958,6 +1954,10 @@ normal
                         name="actionProviderClass"
                         format="string" />
                 </declare-styleable>
+
+                <attr
+                    name="listPreferredItemHeightSmall"
+                    format="dimension" />
 
                 <style
                     name="TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse"
@@ -7509,7 +7509,25 @@ false
             <file
                 path="/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/src/main/res/values/colors.xml"
                 qualifiers="" >
+                <color name="puzzle_light" >#64c6d4ef
+                </color>
                 <color name="background" >#3500ff
+                </color>
+                <color name="puzzle_selected" >#64ff8000
+                </color>
+                <color name="puzzle_hilite" >#ffffffff
+                </color>
+                <color name="puzzle_background" >#ffe6f0ff
+                </color>
+                <color name="puzzle_dark" >#6456648f
+                </color>
+                <color name="puzzle_hint_2" >#2000ff80
+                </color>
+                <color name="puzzle_hint_1" >#6400ff80
+                </color>
+                <color name="puzzle_hint_0" >#64ff0000
+                </color>
+                <color name="puzzle_foreground" >#ff000000
                 </color>
             </file>
             <file
@@ -7523,45 +7541,29 @@ false
             <file
                 path="/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/src/main/res/values/strings.xml"
                 qualifiers="" >
-                <string name="title_activity_prefs" >PrefsActivity
-                </string>
-                <string name="music_summary" >Play background music
-                </string>
                 <string name="action_settings" >Settings
                 </string>
                 <string name="settings_label" >Settings...
                 </string>
                 <string name="medium_label" >Medium
                 </string>
-                <string name="new_game_title" >Difficulty
-                </string>
                 <string name="settings_title" >Sudoku settings
                 </string>
                 <string name="hints_title" >Hints
+                </string>
+                <string name="title_activity_puzzle_view" >PuzzleView
                 </string>
                 <string name="easy_label" >Easy
                 </string>
                 <string name="exit_label" >Exit
                 </string>
-                <string name="about_text" >       App created by ...\n
-       You can learn to play game on Help menu.
-       Very good game
-                </string>
-                <string name="about_label" >About
-                </string>
                 <string name="music_title" >Music
-                </string>
-                <string name="hard_label" >Hard
                 </string>
                 <string name="main_title" >Android Sudoku
                 </string>
-                <string name="hints_summary" >Show hints during play
-                </string>
-                <string name="app_name" >Sudoku
+                <string name="settings_shortcut" >s
                 </string>
                 <string name="continue_label" >Continue
-                </string>
-                <string name="settings_shortcut" >s
                 </string>
                 <string name="hello_world" >Hello world!
                 </string>
@@ -7570,6 +7572,26 @@ false
                 <string name="about_title" >About Android Sudoku
                 </string>
                 <string name="new_game_label" >New Game
+                </string>
+                <string name="music_summary" >Play background music
+                </string>
+                <string name="title_activity_prefs" >PrefsActivity
+                </string>
+                <string name="new_game_title" >Difficulty
+                </string>
+                <string name="title_activity_game" >GameActivity
+                </string>
+                <string name="about_label" >About
+                </string>
+                <string name="about_text" >       App created by ...\n
+       You can learn to play game on Help menu.
+       Very good game
+                </string>
+                <string name="hard_label" >Hard
+                </string>
+                <string name="hints_summary" >Show hints during play
+                </string>
+                <string name="app_name" >Sudoku
                 </string>
             </file>
             <file
@@ -7592,6 +7614,36 @@ false
                 path="/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/src/main/res/xml/settings.xml"
                 qualifiers=""
                 type="xml" />
+            <file
+                name="activity_puzzle_view"
+                path="/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/src/main/res/layout/activity_puzzle_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="fragment_game"
+                path="/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/src/main/res/layout/fragment_game.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="game"
+                path="/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/src/main/res/menu/game.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="puzzle_view"
+                path="/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/src/main/res/menu/puzzle_view.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="fragment_puzzle_view"
+                path="/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/src/main/res/layout/fragment_puzzle_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_game"
+                path="/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/src/main/res/layout/activity_game.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/build/res/rs/defaultFlavor/debug" />
     </dataSet>

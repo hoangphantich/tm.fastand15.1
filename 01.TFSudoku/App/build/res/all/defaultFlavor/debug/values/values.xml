@@ -90,6 +90,15 @@
     <eat-comment />
 
     <color name="background">#3500ff</color>
+    <color name="puzzle_background">#ffe6f0ff</color>
+    <color name="puzzle_dark">#6456648f</color>
+    <color name="puzzle_foreground">#ff000000</color>
+    <color name="puzzle_hilite">#ffffffff</color>
+    <color name="puzzle_hint_0">#64ff0000</color>
+    <color name="puzzle_hint_1">#6400ff80</color>
+    <color name="puzzle_hint_2">#2000ff80</color>
+    <color name="puzzle_light">#64c6d4ef</color>
+    <color name="puzzle_selected">#64ff8000</color>
     <!-- From: file:/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
     <eat-comment />
 
@@ -553,7 +562,9 @@
     <string name="settings_shortcut">s</string>
     <string name="settings_title">Sudoku settings</string>
     <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_game">GameActivity</string>
     <string name="title_activity_prefs">PrefsActivity</string>
+    <string name="title_activity_puzzle_view">PuzzleView</string>
     <!-- From: file:/Projects/_32.techmaster_/androidfast/branches/hoangpt/01.TFSudoku/App/src/main/res/values/styles.xml -->
     <eat-comment />
 
