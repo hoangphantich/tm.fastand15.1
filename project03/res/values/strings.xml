@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Japan food</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="bt_title_Landmarks">Landmarks</string>
+    <string name="bt_title_Restaurants">Restaurants</string>
+    <string name="bt_title_Emtertaiments">Emtertaiments</string>
+    <string name="bt_title_Help">Help</string>
+    <string name="bt_title_Exit">Exit</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_update">Update</string>
+    <string name="menu_about">About</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_land_mark">LandMark</string>
+    <string name="title_section1">General</string>
+    <string name="title_section2">Fastfood</string>
+    <string name="title_section3">Soup</string>
+    <string name="title_section4">Other</string>
+    <string name="about"><center><b>Nha Trang tourism v1.0</b></center>        \nThis app design by: <i>Ho Kim Giau</i></string>
+    <string name="title_foods_list">Foods</string>
+    <string name="title_foods_detail">Foods Detail</string>
+    <string name="title_activity_detail">Food Detail</string>
+
+</resources>
