@@ -83,8 +83,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
   }
 
   /** Start a new game with the given difficulty level */
-  private void startGame(int i) {
-    Log.d(TAG, "clicked on " + i);
+  private void startGame(int gameDifficulty) {
+    Log.d(TAG, "clicked on " + gameDifficulty);
+
     // Start game here...
+    Intent i = new Intent(this, GameActivity.class);
+    i.putExtra(GameActivity.DIFFICULTY, gameDifficulty);
+    startActivity(i);
+
   }
 }
