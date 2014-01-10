@@ -14,6 +14,10 @@
         </activity>
         <activity android:label="@string/title_activity_prefs" android:name="com.hoangphan.app.PrefsActivity">
         </activity>
+        <activity android:label="@string/title_activity_game" android:name="com.hoangphan.app.GameActivity">
+        </activity>
+        <activity android:label="@string/title_activity_puzzle_view" android:name="com.hoangphan.app.PuzzleView">
+        </activity>
     </application>
 
 </manifest>
