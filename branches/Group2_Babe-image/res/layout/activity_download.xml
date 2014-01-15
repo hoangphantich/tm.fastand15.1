@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvReadhttp" />
+
+    <EditText
+        android:id="@+id/ed_http"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bogoc_tron"
+ 		android:padding="10dp"
+        android:ems="10"
+        android:textSize="12sp"
+        android:text="http://m.f1.img.vnecdn.net/2013/12/02/article-2515619-19C21CAA000005-7820-7176-1385941527.jpg" />
+
+<ImageView 
+    android:id="@+id/img"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" />
+
+<Button
+    android:id="@+id/Button01"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="Download Content" />
+
+<Button
+    android:id="@+id/Button02"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/btn_Save" />
+
+</LinearLayout>

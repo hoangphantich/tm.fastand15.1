@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.project.babe_image"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.microphone" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/photo_gallery"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.project.babe_image.Main_Activity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.IMAGE_CAPTURE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.project.babe_image.PictureDetailActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.SwithViewActivity"
+            android:label="title_activity_swith_view" >
+        </activity>        
+        <activity
+            android:name="com.project.babe_image.OpenCamera.OpenCamActivity"
+            android:label="@string/title_activity_open_cam" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.OpenCamera.OpenCammActivity"
+            android:label="@string/title_activity_open_camm" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.OpenCamActivity"
+            android:label="@string/title_activity_open_cam" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.MyPreferencActivity"
+            android:label="@string/title_activity_my_preferenc" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.DownloadActivity"
+            android:label="@string/title_activity_download" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.ShareActivity"
+            android:label="@string/title_activity_share" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.FacebookActivity"
+            android:label="@string/title_activity_facebook" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.SendActivity"
+            android:label="@string/title_activity_send" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.ExplorerActivity"
+            android:label="@string/title_activity_explorer" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.ShowNormalActivity"
+            android:label="@string/title_activity_show_normal" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.PicDetaiActivity"
+            android:label="@string/title_activity_pic_detai"
+            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.GalleryViewActivity"
+            android:label="@string/title_activity_gallery_view" >
+        </activity>
+        <activity
+            android:name="com.project.babe_image.MultiDelActivity"
+            android:label="@string/title_activity_multi_del" >
+        </activity>
+    </application>
+
+</manifest>

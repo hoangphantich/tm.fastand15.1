@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/item_shownormal" android:title="View Image"></item>
+    <item android:id="@+id/item_capture" android:title="Capture"></item>
+    <item android:id="@+id/item_download" android:title="Download"></item>
+    
+    <item android:id="@+id/item_shareimage" android:title="Share Image Facebook"></item>
+    
+    <item android:id="@+id/item_exit" 
+        android:orderInCategory="100" 
+        android:showAsAction="never" 
+        android:title="Exit" />
+    
+    
+    
+
+</menu>
