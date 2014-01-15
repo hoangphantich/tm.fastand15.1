@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_settings"
+        android:title="Play Music Online"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item android:id="@+id/gotofavourite" android:title="Go to Favourite"></item>
+    
+    <item android:id="@+id/gotogame" android:title="Game"></item>
+    <item android:id="@+id/about" android:title="About"></item><item android:id="@+id/exit" android:title="Exit"></item>
+</menu>
