@@ -1,38 +1,59 @@
 package com.hoangphan.tutor0701_networking;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.SimpleDateFormat;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.StrictMode;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 @SuppressLint("NewApi")
 public class MainActivity extends Activity {
 
+	protected static final String TAG = null;
+	Bitmap bm;
+	private ImageView img;
+	
+	 Boolean result;
+	 FileOutputStream fos;
+	private Button btnOpen;
+	private Button btnRss;
+
+	private EditText ed_http;
+	    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		ed_http = (EditText)findViewById(R.id.ed_http);
 		// ---Button view---
-		Button btnOpen = (Button) findViewById(R.id.Button01);
+		 btnOpen = (Button) findViewById(R.id.Button01);		
 		btnOpen.setOnClickListener(new View.OnClickListener() {
-			private ImageView img;
+			
+
+			private String imgUri;
 
 			public void onClick(View v) {
 				if (android.os.Build.VERSION.SDK_INT > 8) {
@@ -41,33 +62,58 @@ public class MainActivity extends Activity {
 					StrictMode.setThreadPolicy(policy);
 				}
 
-				String imgUri = "http://m.f1.img.vnecdn.net/2013/12/02/article-2515619-19C21CAA000005-7820-7176-1385941527.jpg";
-				
+				//String imgUri = "http://m.f1.img.vnecdn.net/2013/12/02/article-2515619-19C21CAA000005-7820-7176-1385941527.jpg";
+				imgUri = ed_http.getText().toString().trim();
 				Bitmap image = downloadImage(imgUri);
 				//new BackgroundTask().execute(imgUri);
 				img = (ImageView) findViewById(R.id.img);
 				img.setImageBitmap(image);
+				
 			}
 		});
 		
-		Button btnRss = (Button) findViewById(R.id.Button02);
+	/// READ IMAGE FROM IMAGEVIEW SAVE TO SDCARD
+		btnRss = (Button) findViewById(R.id.Button02);
 		btnRss.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				if (android.os.Build.VERSION.SDK_INT > 8) {
-					StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-							.permitAll().build();
-					StrictMode.setThreadPolicy(policy);
-				}
-				
-				String url = "http://vnexpress.net/rss/tin-moi-nhat.rss";
-				String content = downloadText(url);
-				Log.d("vnexpress", content);
-				
-				//diplay listview
-				//--using DOM Parser/ SAX/ android lib
-				//
+				File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
+			              Environment.DIRECTORY_PICTURES), "MyImage");
+		    	// create intent with ACTION_IMAGE_CAPTURE action
+		    	if (!mediaStorageDir.exists()) {
+		    	    if (!mediaStorageDir.mkdirs()) {
+		    	      Log.e(TAG, "Failed to create storage directory.");
+		    	      return;
+		    	    }
+		    	  }
+		    	
+				img.setDrawingCacheEnabled(true);
+			//	bm = img.getDrawingCache();
+				BitmapDrawable drawable = (BitmapDrawable) img.getDrawable();
+				bm = drawable.getBitmap();
+				 java.util.Date date= new java.util.Date();
+				 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				                         .format(date.getTime());
+				 String  tenfile= mediaStorageDir.getPath().toString()+File.separator.toString()+timeStamp+".jpg";
+				    
+                try {
+                    fos = new FileOutputStream(tenfile);
+                    result=bm.compress(CompressFormat.JPEG, 75, fos);
+
+                    fos.flush();
+                    fos.close();
+                } catch (FileNotFoundException e) {
+                    // TODO Auto-generated catch block
+
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+
+                    e.printStackTrace();
+                }
+
 			}
+
 		});
 		
 	}
